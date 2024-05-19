@@ -1,9 +1,8 @@
 package com.azuyamat.mccollector.collectors
 
-import com.azuyamat.mccollector.meta.CollectorMeta
 import com.azuyamat.mccollector.CollectorRegistry
 import com.azuyamat.mccollector.Restriction
-import com.azuyamat.mccollector.builders.CollectorBuilder
+import com.azuyamat.mccollector.meta.CollectorMeta
 import org.bukkit.entity.Player
 
 /**

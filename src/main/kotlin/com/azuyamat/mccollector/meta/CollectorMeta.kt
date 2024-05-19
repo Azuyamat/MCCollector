@@ -2,7 +2,6 @@ package com.azuyamat.mccollector.meta
 
 import com.azuyamat.mccollector.Restriction
 import com.azuyamat.mccollector.collectors.Verifiable
-import net.kyori.adventure.text.Component
 
 /**
  * The meta class for a collector.
