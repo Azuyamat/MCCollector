@@ -18,6 +18,8 @@ Some examples of what you can do with collectors:
 - Prompt player for a number within a certain range
 - Ask moderator for a reason before banning a player
 
+![image](https://github.com/Azuyamat/MCCollector/assets/69324406/373cdd16-a7eb-4133-b11e-5f7ca59f3184)
+
 ## Installation
 
 [![](https://jitpack.io/v/Azuyamat/MCCollector.svg)](https://jitpack.io/#Azuyamat/MCCollector)
