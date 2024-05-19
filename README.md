@@ -40,9 +40,74 @@ dependencies {
 </dependency>
 ```
 
+## Features
+
+- [x] Chat message collectors (I.e. player types a message)
+- [ ] GUI collector (I.e. player clicks on a GUI item)
+- [ ] Location collector (I.e. player clicks on a block)
+- [ ] Inventory collector (I.e. player clicks an item in their inventory)
+- [ ] Entity collector (I.e. player clicks on an entity)
+
+> Let me know if you have any other ideas for collectors! :smile:
+
 ## Usage
 
-Soon to come... :eyes:
+> [!WARNING]
+> If you are placing blocks in any of the callbacks, make sure to run them on the main thread.
+> You can use `Bukkit.getScheduler().runTask(plugin, runnable)` to run code on the main thread.
+> This limitation is not one of MCCollector, but rather Bukkit's API.
+
+### Initialization
+
+```kotlin
+class MyPlugin : JavaPlugin() {
+    override fun onEnable() {
+        CollectorRegistry.init(this)
+    }
+}
+```
+
+### Basic Example
+
+> [!NOTE]
+> `onCommand` is used as an example, you would have you own method to handle commands.
+```kotlin
+fun onCommand(...) {
+    val collector = ChatCollectorBuilder {
+        player.sendMessage("Type 'hello' to continue.")
+    }.applyPrefab(MessagesPrefab(player)) // Apply default messages (Ex: "Invalid input" in red)
+    .buildAndRegister(player) // Build and register the collector to the player
+}
+```
+
+### Advanced Example
+
+```kotlin
+fun onCommand(...) {
+    val collector = ChatCollectorBuilder {
+        player.sendMessage("Provide a name for your island.")
+    }.withTimeout(10000)
+        .onCollect {
+            player.sendMessage("Creating island: $it")
+        }
+        .onCancel {
+            player.sendMessage("Island creation cancelled.")
+        }
+        .onTimeout {
+            player.sendMessage("Island creation timed out.")
+        }
+        .verifyValue {
+            if (it.length > 3) {
+                Verifiable.ValidationResult.valid()
+            } else {
+                Verifiable.ValidationResult.invalid("Island name must be longer than 3 characters.")
+            }
+        }
+        .build(player).register() // Or use .buildAndRegister(player)
+}
+```
+
+For more examples, check out the wiki. (Coming soon)
 
 ## Contributing
 
