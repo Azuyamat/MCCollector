@@ -1,7 +1,5 @@
-before_install:
-  # Install Java 21
-  - sdk install java 21.0.0.r11-grl
-  - sdk use java 21.0.0.r11-grl
-
 jdk:
   - openjdk21
+before_install:
+  - sdk install java 21.0.3-tem
+  - sdk use java 21.0.3-tem
