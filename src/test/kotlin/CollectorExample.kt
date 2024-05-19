@@ -3,6 +3,7 @@ import com.azuyamat.mccollector.collectors.Verifiable
 import org.bukkit.entity.Player
 import org.mockito.Mockito.mock
 
+@Suppress("UNUSED")
 class CollectorExample {
     fun example() {
         val player = mock(Player::class.java)
