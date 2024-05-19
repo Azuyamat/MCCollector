@@ -4,6 +4,9 @@ plugins {
     kotlin("jvm") version "1.9.23"
 }
 
+apply(plugin = "java")
+apply(plugin = "maven-publish")
+
 group = "com.azuyamat.mccollector"
 version = "1.0.0"
 
