@@ -83,6 +83,13 @@ object CollectorRegistry {
             collectors.remove(uuid)
             collector.onTimeout()
         }
-        collectors.values.forEach(AnyCollector::promptPlayer)
+        collectors.filter {
+            it.value.isCollected()
+        }.forEach {
+            collectors.remove(it.key)
+        }
+        collectors.values
+            .filter(AnyCollector::readyForNextPrompt)
+            .forEach(AnyCollector::promptPlayer)
     }
 }

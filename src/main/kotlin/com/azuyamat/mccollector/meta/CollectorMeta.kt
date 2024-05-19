@@ -21,6 +21,7 @@ import com.azuyamat.mccollector.collectors.Verifiable
  */
 data class CollectorMeta<T> internal constructor(
     val prompt: () -> Unit,
+    var promptInterval: Long = 10000,
     var timeoutDuration: Long = 30000, // 30 seconds (default)
     var timeout: Long = System.currentTimeMillis() + timeoutDuration,
     var onCollect: (T) -> Unit = {},

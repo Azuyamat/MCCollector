@@ -18,6 +18,7 @@ abstract class Collector<T> internal constructor(
 ) {
     private var collected = false
     private var value: T? = null
+    private var lastPrompted: Long? = null
 
     /**
      * Prompts the player for input.
@@ -28,6 +29,7 @@ abstract class Collector<T> internal constructor(
      */
     fun promptPlayer() {
         meta.prompt()
+        lastPrompted = System.currentTimeMillis()
     }
 
     /**
@@ -116,5 +118,12 @@ abstract class Collector<T> internal constructor(
 
     internal fun hasRestriction(restriction: Restriction): Boolean {
         return meta.restrictions.contains(restriction)
+    }
+
+    internal fun readyForNextPrompt(): Boolean {
+        val isReady = !isExpired() && !isCollected()
+        val lastPrompted = lastPrompted ?: return isReady
+        val nextPrompt = lastPrompted + meta.promptInterval
+        return isReady && System.currentTimeMillis() > nextPrompt
     }
 }

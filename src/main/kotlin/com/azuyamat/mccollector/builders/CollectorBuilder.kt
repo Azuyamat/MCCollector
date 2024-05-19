@@ -33,6 +33,19 @@ abstract class CollectorBuilder<T> internal constructor(
     }
 
     /**
+     * Sets the prompt interval for the collector.
+     * Defaults to 10000 ms (10 seconds).
+     *
+     * @param interval The interval between prompts.
+     * @return The current [CollectorBuilder] instance.
+     * @since 1.0.0
+     */
+    fun withPromptInterval(interval: Long): CollectorBuilder<T> {
+        meta.promptInterval = interval
+        return this
+    }
+
+    /**
      * Sets the action to be taken when the collector collects a value.
      *
      * @param onCollect The action to be taken when the collector collects a value.
