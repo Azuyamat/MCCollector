@@ -1,14 +1,11 @@
 plugins {
-    java
     `maven-publish`
+    java
     kotlin("jvm") version "1.9.23"
 }
 
-apply(plugin = "java")
-apply(plugin = "maven-publish")
-
 group = "com.azuyamat.mccollector"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -35,7 +32,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.azuyamat.mccollector"
             artifactId = "mccollector"
-            version = "1.0.0"
+            version = "1.0.1"
 
             from(components["java"])
         }
