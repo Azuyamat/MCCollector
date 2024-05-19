@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.23"
     `maven-publish`
+    java
 }
 
 group = "com.azuyamat.mccollector"

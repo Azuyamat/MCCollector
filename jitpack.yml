@@ -1,0 +1,7 @@
+before_install:
+  # Install Java 21
+  - sdk install java 21.0.0.r11-grl
+  - sdk use java 21.0.0.r11-grl
+
+jdk:
+  - openjdk21
