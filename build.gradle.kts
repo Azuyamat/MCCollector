@@ -1,4 +1,6 @@
 plugins {
+    java
+    `maven-publish`
     kotlin("jvm") version "1.9.23"
 }
 
@@ -23,4 +25,16 @@ tasks.test {
 
 kotlin {
     jvmToolchain(21)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.azuyamat.mccollector"
+            artifactId = "mccollector"
+            version = "1.0.0"
+
+            from(components["java"])
+        }
+    }
 }
