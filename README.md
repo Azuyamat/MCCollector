@@ -1,4 +1,11 @@
-# MCCollector
+# MCCollector 📜
+
+Made with ❤️ by Azuyamat
+
+Consider adding a star ⭐ if you find this project useful!
+
+![GitHub license](https://img.shields.io/github/license/Azuyamat/MCCollector)
+![GitHub Repo stars](https://img.shields.io/github/stars/Azuyamat/MCCollector?style=social)
 
 ## Details
 
@@ -13,15 +20,17 @@ Some examples of what you can do with collectors:
 
 ## Installation
 
+[![](https://jitpack.io/v/Azuyamat/MCCollector.svg)](https://jitpack.io/#Azuyamat/MCCollector)
+
 ### Gradle
 ```gradle
 repositories {
-    maven { url 'https://jitpack.io' }
+    maven { url = "https://jitpack.io" }
 }
 ```
 ```gradle
 dependencies {
-    // TO BE ADDED
+    implementation "com.github.Azuyamat:MCCollector:VERSION"
 }
 ```
 
@@ -36,7 +45,9 @@ dependencies {
 ```
 ```xml
 <dependency>
-    // TO BE ADDED
+    <groupId>com.github.Azuyamat</groupId>
+    <artifactId>MCCollector</artifactId>
+    <version>VERSION</version>
 </dependency>
 ```
 
