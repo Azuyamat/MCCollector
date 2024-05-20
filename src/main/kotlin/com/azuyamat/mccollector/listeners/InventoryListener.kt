@@ -9,7 +9,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryCloseEvent
 
-class InventoryListener : Listener {
+internal class InventoryListener : Listener {
     @EventHandler
     fun onInventoryClick(event: InventoryClickEvent) {
         if (!CollectorRegistry.initialized) return
@@ -26,6 +26,7 @@ class InventoryListener : Listener {
 
         val result = collector.verifyValue(item)
         if (result.isValid) {
+            player.closeInventory()
             collector.onCollect(item)
         } else {
             collector.onInvalid(result, item)
