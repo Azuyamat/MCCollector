@@ -14,7 +14,7 @@ import org.bukkit.entity.Player
 class ChatCollector internal constructor(
     override val player: Player,
     override val meta: CollectorMeta<String>
-) : Collector<String>(player, meta), Verifiable {
+) : Collector<String>(player, meta), Verifiable<String> {
     override fun verifyValue(value: String): Verifiable.ValidationResult {
         resetTimeout()
         return meta.verifyValue(value)

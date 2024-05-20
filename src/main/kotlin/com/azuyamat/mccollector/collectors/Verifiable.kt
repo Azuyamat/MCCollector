@@ -5,8 +5,8 @@ package com.azuyamat.mccollector.collectors
  *
  * @since 1.0.0
  */
-interface Verifiable {
-    fun verifyValue(value: String): ValidationResult
+interface Verifiable<T> {
+    fun verifyValue(value: T): ValidationResult
     data class ValidationResult internal constructor(val isValid: Boolean, val errorMessage: String? = null) {
         companion object {
             fun valid(message: String? = null): ValidationResult {

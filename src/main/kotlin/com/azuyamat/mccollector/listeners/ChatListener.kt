@@ -19,12 +19,13 @@ internal class ChatListener : Listener {
             it.action(event.player)
         }
 
-        if (collector !is ChatCollector) return
         val content = (event.message() as TextComponent).content()
         if (content.equals("cancel", true)) {
             collector.onCancel()
             return
         }
+
+        if (collector !is ChatCollector) return
 
         val result = collector.verifyValue(content)
         if (result.isValid) {

@@ -5,6 +5,7 @@ import com.azuyamat.mccollector.CollectorRegistry.initialized
 import com.azuyamat.mccollector.collectors.Collector
 import com.azuyamat.mccollector.listeners.ChatListener
 import com.azuyamat.mccollector.listeners.CommandListener
+import com.azuyamat.mccollector.listeners.InventoryListener
 import com.azuyamat.mccollector.listeners.QuitListener
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.*
@@ -42,6 +43,7 @@ object CollectorRegistry {
                 QuitListener(),
                 ChatListener(),
                 CommandListener(),
+                InventoryListener()
             ).forEach {
                 plugin.server.pluginManager.registerEvents(it, plugin)
             }
