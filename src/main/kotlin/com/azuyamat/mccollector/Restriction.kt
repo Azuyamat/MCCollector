@@ -12,4 +12,5 @@ import org.bukkit.entity.Player
 sealed class Restriction(val action: (Player) -> Unit = {}) {
     class Chat(action: (Player) -> Unit = {}) : Restriction(action)
     class Command(action: (Player) -> Unit = {}) : Restriction(action)
+    class InventoryManipulation(action: (Player) -> Unit = {}) : Restriction(action)
 }

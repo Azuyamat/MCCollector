@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 abstract class CollectorBuilder<T> internal constructor(
     prompt: () -> Unit,
 ) {
-    protected val meta = CollectorMeta<String>(prompt)
+    protected val meta = CollectorMeta<T>(prompt)
 
     /**
      * Sets the timeout duration for the collector.
@@ -52,7 +52,7 @@ abstract class CollectorBuilder<T> internal constructor(
      * @return The current [CollectorBuilder] instance.
      * @since 1.0.0
      */
-    fun onCollect(onCollect: (String) -> Unit): CollectorBuilder<T> {
+    fun onCollect(onCollect: (T) -> Unit): CollectorBuilder<T> {
         meta.onCollect = onCollect
         return this
     }
@@ -88,7 +88,7 @@ abstract class CollectorBuilder<T> internal constructor(
      * @return The current [CollectorBuilder] instance.
      * @since 1.0.0
      */
-    fun onInvalid(onInvalid: (Verifiable.ValidationResult, String) -> Unit): CollectorBuilder<T> {
+    fun onInvalid(onInvalid: (Verifiable.ValidationResult, T) -> Unit): CollectorBuilder<T> {
         meta.onInvalid = onInvalid
         return this
     }
@@ -100,7 +100,7 @@ abstract class CollectorBuilder<T> internal constructor(
      * @return The current [CollectorBuilder] instance.
      * @since 1.0.0
      */
-    fun verifyValue(verifyValue: (String) -> Verifiable.ValidationResult): CollectorBuilder<T> {
+    fun verifyValue(verifyValue: (T) -> Verifiable.ValidationResult): CollectorBuilder<T> {
         meta.verifyValue = verifyValue
         return this
     }
