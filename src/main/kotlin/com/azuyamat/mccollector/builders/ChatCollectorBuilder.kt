@@ -16,6 +16,7 @@ import org.bukkit.entity.Player
  * @constructor Creates a new [ChatCollectorBuilder] with the given prompt.
  * @since 1.0.0
  */
+@Suppress("UNUSED")
 class ChatCollectorBuilder(
     prompt: () -> Unit,
 ) : CollectorBuilder<String>(prompt) {

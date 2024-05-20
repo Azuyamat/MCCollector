@@ -14,6 +14,7 @@ import org.bukkit.entity.Player
  * @see CollectorBuilder
  * @since 1.0.0
  */
+@Suppress("UNUSED")
 class MessagesPrefab(
     private val player: Player
 ) : CollectorPrefab {

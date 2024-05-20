@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
  * A builder for creating a [Collector].
  *
  * @param T The type of the value to collect.
- * @property prompt The prompt to display to the player.
+ * @param prompt The prompt to display to the player.
  * @constructor Creates a new [CollectorBuilder] with the given prompt.
  * @since 1.0.0
  */

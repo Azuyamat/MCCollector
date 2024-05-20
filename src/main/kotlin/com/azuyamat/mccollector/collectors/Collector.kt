@@ -98,6 +98,7 @@ abstract class Collector<T> internal constructor(
      * @param value The value to collect.
      * @since 1.0.0
      */
+    @Suppress("UNUSED")
     fun collect(value: T) {
         onCollect(value)
     }

@@ -8,6 +8,7 @@ import com.azuyamat.mccollector.builders.CollectorBuilder
  * @see CollectorBuilder
  * @since 1.0.0
  */
+@Suppress("UNUSED")
 interface CollectorPrefab {
     /**
      * Applies predefined actions to a collector.
