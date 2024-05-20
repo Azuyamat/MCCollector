@@ -10,7 +10,7 @@ import org.bukkit.entity.Player
 
 /**
  * A builder for creating a [ChatCollector].
- * This builder uses the [Restriction.CHAT] and [Restriction.COMMAND] restrictions by default.
+ * This builder uses the [Restriction.Chat] and [Restriction.Command] restrictions by default.
  *
  * @param prompt The prompt to display to the player.
  * @constructor Creates a new [ChatCollectorBuilder] with the given prompt.
@@ -21,8 +21,8 @@ class ChatCollectorBuilder(
 ) : CollectorBuilder<String>(prompt) {
     init {
         meta.restrictions.addAll(listOf(
-            Restriction.CHAT,
-            Restriction.COMMAND
+            Restriction.Chat(),
+            Restriction.Command()
         ))
     }
 
