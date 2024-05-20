@@ -18,4 +18,11 @@ class InventoryCollectorBuilder(
     override fun build(player: Player): Collector<ItemStack> {
         return InventoryCollector(player, meta)
     }
+
+    companion object {
+        fun openInventoryCollectorBuilder(player: Player) =
+            InventoryCollectorBuilder {
+                player.openInventory(player.inventory)
+            }
+    }
 }
