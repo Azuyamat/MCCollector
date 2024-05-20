@@ -4,6 +4,7 @@ import com.azuyamat.mccollector.CollectorRegistry
 import com.azuyamat.mccollector.Restriction
 import com.azuyamat.mccollector.meta.CollectorMeta
 import org.bukkit.entity.Player
+import kotlin.reflect.KClass
 
 /**
  * A collector is a class that prompts a player for input and collects it.
@@ -116,8 +117,12 @@ abstract class Collector<T> internal constructor(
         meta.timeout = System.currentTimeMillis() + meta.timeoutDuration
     }
 
-    internal fun hasRestriction(restriction: Restriction): Boolean {
-        return meta.restrictions.contains(restriction)
+    internal fun hasRestriction(restriction: KClass<out Restriction>): Boolean {
+        return meta.restrictions.any { restriction.isInstance(it) }
+    }
+
+    internal fun getRestriction(restriction: KClass<out Restriction>): Restriction? {
+        return meta.restrictions.find { restriction.isInstance(it) }
     }
 
     internal fun readyForNextPrompt(): Boolean {

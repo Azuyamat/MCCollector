@@ -1,5 +1,6 @@
 package com.azuyamat.mccollector.prefabs
 
+import com.azuyamat.mccollector.Restriction
 import com.azuyamat.mccollector.builders.CollectorBuilder
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
@@ -28,6 +29,9 @@ class MessagesPrefab(
                 val errorMessage = result.errorMessage ?: "Invalid input."
                 player.sendMessage(Component.text(errorMessage).color(NamedTextColor.RED))
             }
+            this.withRestriction(Restriction.Command {
+                it.sendMessage(Component.text("You cannot use commands in this context.").color(NamedTextColor.RED))
+            })
         }
     }
 }

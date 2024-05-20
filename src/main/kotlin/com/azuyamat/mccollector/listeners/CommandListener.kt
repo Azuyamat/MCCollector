@@ -12,7 +12,9 @@ internal class CommandListener : Listener {
         if (!CollectorRegistry.initialized) return
 
         val collector = CollectorRegistry.getCollector(event.player.uniqueId) ?: return
-        if (!collector.hasRestriction(Restriction.COMMAND)) return
-        event.isCancelled = true
+        collector.getRestriction(Restriction.Command::class)?.let {
+            event.isCancelled = true
+            it.action(event.player)
+        }
     }
 }

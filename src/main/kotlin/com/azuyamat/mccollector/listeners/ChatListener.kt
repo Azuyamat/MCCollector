@@ -14,8 +14,10 @@ internal class ChatListener : Listener {
         if (!CollectorRegistry.initialized) return
 
         val collector = CollectorRegistry.getCollector(event.player.uniqueId) ?: return
-        if (!collector.hasRestriction(Restriction.CHAT)) return
-        event.isCancelled = true
+        collector.getRestriction(Restriction.Chat::class)?.let {
+            event.isCancelled = true
+            it.action(event.player)
+        }
 
         if (collector !is ChatCollector) return
         val content = (event.message() as TextComponent).content()

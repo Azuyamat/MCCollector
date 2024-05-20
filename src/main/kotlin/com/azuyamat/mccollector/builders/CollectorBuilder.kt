@@ -113,6 +113,7 @@ abstract class CollectorBuilder<T> internal constructor(
      * @since 1.0.0
      */
     fun withRestriction(restriction: Restriction): CollectorBuilder<T> {
+        meta.restrictions.removeIf { it::class == restriction::class }
         meta.restrictions.add(restriction)
         return this
     }
@@ -125,7 +126,7 @@ abstract class CollectorBuilder<T> internal constructor(
      * @since 1.0.0
      */
     fun withRestrictions(vararg restrictions: Restriction): CollectorBuilder<T> {
-        meta.restrictions.addAll(restrictions)
+        restrictions.forEach(::withRestriction)
         return this
     }
 
