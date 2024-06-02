@@ -56,10 +56,9 @@ dependencies {
 ## Features
 
 - [x] Chat message collectors (I.e. player types a message)
-- [ ] GUI collector (I.e. player clicks on a GUI item)
-- [ ] Location collector (I.e. player clicks on a block)
+- [X] Location collector (I.e. player clicks on a block)
 - [X] Inventory collector (I.e. player clicks an item in their inventory)
-- [ ] Entity collector (I.e. player clicks on an entity)
+- [X] Entity collector (I.e. player clicks on an entity)
 
 > Let me know if you have any other ideas for collectors! :smile:
 
