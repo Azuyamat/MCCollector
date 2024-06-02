@@ -1,14 +1,13 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-
 plugins {
     kotlin("jvm") version "1.9.23"
     `maven-publish`
     java
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("xyz.jpenilla.run-paper") version "2.3.0"
 }
 
 group = "com.azuyamat.mccollector"
-version = "1.1.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -46,10 +45,15 @@ publishing {
 }
 
 tasks {
-    register("jarTest", ShadowJar::class) {
+    shadowJar {
         archiveClassifier.set("test")
         from(sourceSets["main"].output)
         from(sourceSets["test"].output)
+        from(sourceSets["test"].resources)
         configurations = listOf(project.configurations.getByName("testRuntimeClasspath"))
+    }
+
+    runServer {
+        minecraftVersion("1.20.4")
     }
 }
