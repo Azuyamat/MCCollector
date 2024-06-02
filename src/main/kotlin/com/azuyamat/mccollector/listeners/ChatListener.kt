@@ -21,6 +21,7 @@ internal class ChatListener : Listener {
 
         val content = (event.message() as TextComponent).content()
         if (content.equals("cancel", true)) {
+            event.isCancelled = true
             collector.onCancel()
             return
         }

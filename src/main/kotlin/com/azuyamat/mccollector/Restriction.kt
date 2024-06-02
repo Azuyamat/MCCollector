@@ -13,4 +13,6 @@ sealed class Restriction(val action: (Player) -> Unit = {}) {
     class Chat(action: (Player) -> Unit = {}) : Restriction(action)
     class Command(action: (Player) -> Unit = {}) : Restriction(action)
     class InventoryManipulation(action: (Player) -> Unit = {}) : Restriction(action)
+    class Location(action: (Player) -> Unit = {}) : Restriction(action)
+    class Entity(action: (Player) -> Unit = {}) : Restriction(action)
 }

@@ -3,6 +3,7 @@ package com.azuyamat.mccollector
 import com.azuyamat.mccollector.CollectorRegistry.init
 import com.azuyamat.mccollector.CollectorRegistry.initialized
 import com.azuyamat.mccollector.collectors.Collector
+import com.azuyamat.mccollector.listeners.*
 import com.azuyamat.mccollector.listeners.ChatListener
 import com.azuyamat.mccollector.listeners.CommandListener
 import com.azuyamat.mccollector.listeners.InventoryListener
@@ -43,7 +44,9 @@ object CollectorRegistry {
                 QuitListener(),
                 ChatListener(),
                 CommandListener(),
-                InventoryListener()
+                InventoryListener(),
+                LocationListener(),
+                EntityListener()
             ).forEach {
                 plugin.server.pluginManager.registerEvents(it, plugin)
             }
