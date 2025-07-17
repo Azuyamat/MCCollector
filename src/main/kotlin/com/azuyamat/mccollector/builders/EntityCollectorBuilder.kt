@@ -7,11 +7,11 @@ import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 
 /**
- * A builder for creating an [EntityCollectorBuilder].
+ * A builder for creating an [EntityCollector].
  *
  * @param prompt The prompt to display to the player.
  * @constructor Creates an EntityCollectorBuilder.
- * @since 1.1.0
+ * @since 1.2.0
  */
 class EntityCollectorBuilder(
     prompt: () -> Unit,

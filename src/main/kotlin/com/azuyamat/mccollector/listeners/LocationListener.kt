@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 
-class LocationListener : Listener {
+internal class LocationListener : Listener {
     @EventHandler
     fun onClick(event: PlayerInteractEvent) {
         if (!CollectorRegistry.initialized) return

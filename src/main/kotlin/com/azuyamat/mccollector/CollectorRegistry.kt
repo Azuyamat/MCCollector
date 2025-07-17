@@ -1,15 +1,9 @@
 package com.azuyamat.mccollector
 
-import com.azuyamat.mccollector.CollectorRegistry.init
-import com.azuyamat.mccollector.CollectorRegistry.initialized
 import com.azuyamat.mccollector.collectors.Collector
 import com.azuyamat.mccollector.listeners.*
-import com.azuyamat.mccollector.listeners.ChatListener
-import com.azuyamat.mccollector.listeners.CommandListener
-import com.azuyamat.mccollector.listeners.InventoryListener
-import com.azuyamat.mccollector.listeners.QuitListener
 import org.bukkit.plugin.java.JavaPlugin
-import java.util.*
+import java.util.UUID
 
 private typealias AnyCollector = Collector<*>
 
@@ -40,14 +34,21 @@ object CollectorRegistry {
                 .runTaskTimer(plugin, Runnable {
                     updateCollectors()
                 }, TIMEOUT, UPDATE_INTERVAL)
-            listOf(
+
+            val listeners = mutableListOf(
                 QuitListener(),
                 ChatListener(),
                 CommandListener(),
                 InventoryListener(),
                 LocationListener(),
                 EntityListener()
-            ).forEach {
+            )
+
+            if (plugin.server.pluginManager.isPluginEnabled("FancyNpcs")) {
+                listeners.add(FancyNpcsListener())
+            }
+
+            listeners.forEach {
                 plugin.server.pluginManager.registerEvents(it, plugin)
             }
             initialized = true

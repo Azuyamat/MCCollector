@@ -13,7 +13,7 @@ import kotlin.reflect.KClass
  * @param T The type of value to collect
  * @since 1.0.0
  */
-abstract class Collector<T> internal constructor(
+abstract class Collector<T>(
     protected open val player: Player,
     protected open val meta: CollectorMeta<T>
 ) {

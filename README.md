@@ -59,6 +59,7 @@ dependencies {
 - [X] Location collector (I.e. player clicks on a block)
 - [X] Inventory collector (I.e. player clicks an item in their inventory)
 - [X] Entity collector (I.e. player clicks on an entity)
+- [X] FancyNpcs collector (I.e. player clicks on a FancyNpcs NPC)
 
 > Let me know if you have any other ideas for collectors! :smile:
 

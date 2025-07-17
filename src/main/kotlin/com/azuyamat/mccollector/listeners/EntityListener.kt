@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEntityEvent
 
-class EntityListener : Listener {
+internal class EntityListener : Listener {
     @EventHandler
     fun onClick(event: PlayerInteractEntityEvent) {
         if (!CollectorRegistry.initialized) return

@@ -1,0 +1,16 @@
+[versions]
+kotlin = "2.0.21"
+shadow = "9.0.0-beta11"
+paper = "1.21.4-R0.1-SNAPSHOT"
+runpaper = "2.3.1"
+acf = "0.5.1-SNAPSHOT"
+fancynpcs = "2.5.2"
+
+[plugins]
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
+runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runpaper" }
+
+[libraries]
+paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
+acf = { group = "co.aikar", name = "acf-paper", version.ref = "acf" }
+fancynpcs = { group = "de.oliver", name = "FancyNpcs", version.ref = "fancynpcs" }

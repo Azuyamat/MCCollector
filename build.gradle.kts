@@ -1,31 +1,32 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version libs.versions.kotlin
     `maven-publish`
     java
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("xyz.jpenilla.run-paper") version "2.3.0"
+    alias(libs.plugins.shadow)
+    alias(libs.plugins.runpaper)
 }
 
 group = "com.azuyamat.mccollector"
-version = "1.2.0"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.fancyinnovations.com/releases")
 
     /* Test */
     maven("https://repo.aikar.co/content/groups/aikar/")
-    maven("https://hub.spigotmc.org/nexus/content/groups/public/")
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly(libs.paper)
+    compileOnly(libs.fancynpcs)
 
     /* Test */
     testImplementation(kotlin("test"))
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
-    testImplementation("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    testImplementation("co.aikar:acf-paper:0.5.1-SNAPSHOT")
+    testCompileOnly(libs.paper)
+    testImplementation(libs.acf)
+    testCompileOnly(libs.fancynpcs)
 }
 
 tasks.test {
@@ -33,7 +34,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 publishing {
@@ -54,6 +55,12 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.20.4")
+        minecraftVersion("1.21.4")
+        jvmArgs("-DPaper.IgnoreJavaVersion=true", "-Dcom.mojang.eula.agree=true")
+
+        downloadPlugins {
+            modrinth("viaversion", "5.4.0-SNAPSHOT+747")
+            modrinth("fancynpcs", libs.versions.fancynpcs.get())
+        }
     }
 }

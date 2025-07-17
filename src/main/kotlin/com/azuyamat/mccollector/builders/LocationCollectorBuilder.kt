@@ -7,11 +7,11 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 
 /**
- * A builder for creating an [LocationCollectorBuilder].
+ * A builder for creating an [LocationCollector].
  *
  * @param prompt The prompt to display to the player.
  * @constructor Creates an LocationCollectorBuilder.
- * @since 1.1.0
+ * @since 1.2.0
  */
 class LocationCollectorBuilder(
     prompt: () -> Unit,

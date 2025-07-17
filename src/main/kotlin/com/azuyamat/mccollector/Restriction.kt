@@ -15,4 +15,5 @@ sealed class Restriction(val action: (Player) -> Unit = {}) {
     class InventoryManipulation(action: (Player) -> Unit = {}) : Restriction(action)
     class Location(action: (Player) -> Unit = {}) : Restriction(action)
     class Entity(action: (Player) -> Unit = {}) : Restriction(action)
+    class FancyNpcs(action: (Player) -> Unit = {}) : Restriction(action)
 }

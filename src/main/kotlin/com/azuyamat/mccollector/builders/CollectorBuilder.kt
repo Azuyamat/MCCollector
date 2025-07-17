@@ -15,7 +15,7 @@ import org.bukkit.entity.Player
  * @constructor Creates a new [CollectorBuilder] with the given prompt.
  * @since 1.0.0
  */
-abstract class CollectorBuilder<T> internal constructor(
+abstract class CollectorBuilder<T>(
     prompt: () -> Unit,
 ) {
     protected val meta = CollectorMeta<T>(prompt)

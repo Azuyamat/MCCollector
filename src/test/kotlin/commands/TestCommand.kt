@@ -4,10 +4,7 @@ import co.aikar.commands.BaseCommand
 import co.aikar.commands.annotation.CommandAlias
 import co.aikar.commands.annotation.Default
 import co.aikar.commands.annotation.Subcommand
-import com.azuyamat.mccollector.builders.ChatCollectorBuilder
-import com.azuyamat.mccollector.builders.EntityCollectorBuilder
-import com.azuyamat.mccollector.builders.InventoryCollectorBuilder
-import com.azuyamat.mccollector.builders.LocationCollectorBuilder
+import com.azuyamat.mccollector.builders.*
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 
@@ -54,6 +51,17 @@ class TestCommand : BaseCommand() {
             player.sendMessage("Collected ${it.type}")
         }.onCancel {
             player.sendMessage("Cancelled")
+        }.build(player)
+
+        collector.register()
+    }
+
+    @Subcommand("fancynpcs")
+    fun onFancyNpcs(player: Player) {
+        val collector = FancyNpcsCollectorBuilder {
+            player.sendMessage("Click an NPC")
+        }.onCollect {
+            player.sendMessage("Collected NPC: ${it.data.name}")
         }.build(player)
 
         collector.register()
